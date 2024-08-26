@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <select name="gender" class="select_gender" id="gender" onchange="changeLabel(this)">
+            <option disabled hidden selected>Pilih</option>
+            <option value="L">Laki-Laki</option>
+            <option value="P">Perempuan</option>
+            <option value="N">Tidak Diketahui</option>
+        </select>
+        <div id="name_wrapper">
+            <label for="">Nama <span id="text_change">(Ibu)</span></label>
+            <input type="text" id="name" name="name">
+        </div>
+        <button type="button" onclick="">Kirim</button>
+    </form>
+    <script>
+        function changeLabel(e) {
+            let textChange = document.getElementById("text_change");
+            let nameWrapper = document.getElementById("name_wrapper");
+            if (e.value == "L") {
+                textChange.innerText = "<h1>(Bapak)</h1>";
+                textChange.style.color = "blue";  
+                nameWrapper.style.display = "block";
+            } else if (e.value == "P") {
+                textChange.innerHTML = "<h1>(Ibu)</h1>";
+                textChange.style.color = "red";   
+                nameWrapper.style.display = "block";
+            } else {
+                nameWrapper.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

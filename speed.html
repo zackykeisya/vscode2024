@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <div class="cart-1">
+      <h2>Section 1</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </div>
+    <div class="cart-2">
+      <h2>Section 2</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </div>
+    <div class="cart-3">
+      <h2>Section 3</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </div>
+  </div>
+  <button>daftar</button>
+
+  <style>.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cart-1, .cart-2, .cart-3 {
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-1, .cart-3 {
+    align-self: flex-start;
+  }
+  
+  .cart-2 {
+    align-self: flex-end;
+  }
+  
+  /* .cart-3 {
+    align-self: flex-start;
+  } */
+  button {
+    height: 7%;
+    width: 7%;
+    background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+  
+</style>

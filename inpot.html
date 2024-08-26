@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <select name="adatidak" class="select_adatidak" id="adatidak" onchange="changeLabel(this)">
+            <option disabled hidden selected>Pilih</option>
+            <option value="ada">Ada</option>
+            <option value="tidak">tidak</option>
+        </select>
+        <div id="name_wrapper" style="display: block;">
+            <label for="">Nama Lengkap Perekomendasi</label>
+            <input type="text" id="name" name="name">
+            <div id="perekomendasi_wrapper" style="display: block;">
+                <label for="">Perekomendasi</label>
+                <select id="perekomendasi" name="perekomendasi" onchange="changePerekomendasi(this)">
+                    <option disabled hidden selected>Pilih</option>
+                    <option value="pekerja_bri">Pekerja BRI</option>
+                    <option value="purna_bakti">Purna Bakti</option>
+                </select>
+                <div id="bri_detail_wrapper" style="display: block;">
+                    <label for="">Nomor ID Pegawai/KTA/PN/MP</label>
+                    <input type="text" id="bri_id" name="bri_id">
+                    <label for="">Jabatan Perekomendasi</label>
+                    <input type="text" id="bri_jabatan" name="bri_jabatan">
+                </div>
+                <div id="purna_bakti_detail_wrapper" style="display: none;">
+                    <label for="">Nomor ID Pegawai/KTA/PN/MP</label>
+                    <input type="text" id="purna_bakti_id" name="purna_bakti_id">
+                </div>
+            </div>
+        </div>
+        <button type="button" onclick="">Kirim</button>
+    </form> 
+    <script>
+        function changeLabel(e) {
+            let nameWrapper = document.getElementById("name_wrapper");
+            let perekomendasiWrapper = document.getElementById("perekomendasi_wrapper");
+            if (e.value == "ada") {
+                nameWrapper.style.display = "block";
+                perekomendasiWrapper.style.display = "block";
+            } else if (e.value == "tidak") {
+                nameWrapper.style.display = "none";
+                perekomendasiWrapper.style.display = "none";
+            }
+        }
+
+        function changePerekomendasi(e) {
+            let briDetailWrapper = document.getElementById("bri_detail_wrapper");
+            let purnaBaktiDetailWrapper = document.getElementById("purna_bakti_detail_wrapper");
+            if (e.value == "pekerja_bri") {
+                briDetailWrapper.style.display = "block";
+                purnaBaktiDetailWrapper.style.display = "none";
+            } else if (e.value == "purna_bakti") {
+                briDetailWrapper.style.display = "none";
+                purnaBaktiDetailWrapper.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
