@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Alert</title>
+  <style>
+    /* tambahkan style untuk button jika perlu */
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;margin-right: 10px;
+    }
+  
+    button:hover {
+      background-color: #3e8e41;
+    }
+  
+    #tampilan-countdown {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  
+    #tampilan-countdown.running {
+      color: #ff9900;
+      animation: blink 1s infinite;
+    }
+  
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1>Hitung Mundur</h1>
+    <p id="tampilan-countdown">10</p>
+    <div class="button-container">
+    
+      <button id="tombol-mulai">Mulai</button>
+      <button id="tombol-berhenti">Berhenti</button>
+    </div>
+ 
+  </center>
+
+  <script>
+    const tombolMulai = document.getElementById('tombol-mulai');
+    const tombolBerhenti = document.getElementById('tombol-berhenti');
+    const tampilanCountdown = document.getElementById('tampilan-countdown');
+    let idInterval = null;
+    let waktuHitung = 9;
+    let dihentikan = true;
+
+    tombolMulai.addEventListener('click', () => {
+      dihentikan = false;
+      idInterval = setInterval(() => {
+        if (!dihentikan) {
+          tampilanCountdown.textContent = ` ${waktuHitung} `;
+          waktuHitung--;
+          if (waktuHitung < -1) {
+            clearInterval(idInterval);
+            tampilanCountdown.textContent = 'Selesai (waktu habis)';
+            alert('Selesai (waktu habis)');
+            waktuHitung = 10;
+          }
+        }
+      }, 1000);
+    });
+
+    tombolBerhenti.addEventListener('click', () => {
+      dihentikan = true;
+      clearInterval(idInterval);
+    });
+  </script>
+</body>
+</html>

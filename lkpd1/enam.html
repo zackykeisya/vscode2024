@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Format Tanggal</title>
+</head>
+<body>
+    <h2>Input Tanggal</h2>
+    <form id="dateForm">
+        <label for="tanggal">Pilih Tanggal:</label>
+        <input type="date" id="tanggal" name="tanggal" required><br><br>
+
+        <button type="button" onclick="formatTanggal()">Submit</button>
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+        function formatTanggal() {
+            const input = document.getElementById('tanggal').value;
+
+            if (input) {
+                const tanggalObj = new Date(input);
+                const tanggal = tanggalObj.getDate();
+                const bulan = tanggalObj.getMonth();
+                const tahun = tanggalObj.getFullYear();
+
+                const namaBulan = [
+                    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+                ];
+
+                const bulanNama = namaBulan[bulan];
+                const hasil = `${tanggal} ${bulanNama} ${tahun}`; // Use backticks instead of dollar sign
+
+                document.getElementById('output').innerText = hasil;
+            } else {
+                document.getElementById('output').innerText = "Harap pilih tanggal.";
+            }
+        }
+    </script>
+</body>
+</html>
